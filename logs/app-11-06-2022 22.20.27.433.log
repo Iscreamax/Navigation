@@ -1,0 +1,2 @@
+2022-06-11 22:20:29,529 INFO n.Main [main] BusStop{id=2, name='Petrovschina', latitude=54.0, longitude=28.0, city=City{id=1, name='null'}}
+BusStop{id=2, name='Petrovschina', latitude=54.0, longitude=28.0, city=City{id=1, name='null'}}
