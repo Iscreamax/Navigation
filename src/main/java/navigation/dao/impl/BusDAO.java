@@ -127,13 +127,13 @@ public class BusDAO implements IBusDAO {
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
+                Bus bus = new Bus();
                 bus.setId(rs.getInt("id"));
                 bus.setNumber(rs.getString("number"));
                 bus.setMaxCountOfPassengers(rs.getInt("max_count_of_passengers"));
                 bus.setStartTime(rs.getString("start_time"));
                 bus.setEndTime(rs.getString("end_time"));
                 buses.add(bus);
-                LOGGER.info("List of buses:" + buses + " ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of buses", e);
