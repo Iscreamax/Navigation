@@ -29,7 +29,7 @@ public class RouteDAO implements IRouteDAO {
     public Route getEntityById(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Routes WHERE id=?");
+            pr = connection.prepareStatement("SELECT * FROM routes WHERE id=?");
             pr.setInt(1, id);
             pr.execute();
             rs = pr.getResultSet();
@@ -58,7 +58,7 @@ public class RouteDAO implements IRouteDAO {
     public void createEntity(Route entity) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("INSERT INTO Routes (buses_id, bus_stops_id) VALUES (?, ?)");
+            pr = connection.prepareStatement("INSERT INTO routes (buses_id, bus_stops_id) VALUES (?, ?)");
             pr.setInt(1, route.getBus().getId());
             pr.setInt(2, route.getBusStop().getId());
             pr.executeUpdate();
@@ -80,7 +80,7 @@ public class RouteDAO implements IRouteDAO {
     public void updateEntity(Route entity) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("UPDATE Routes SET buses_id=?, bus_stops_id=? ");
+            pr = connection.prepareStatement("UPDATE routes SET buses_id=?, bus_stops_id=? ");
             pr.setInt(1, route.getBus().getId());
             pr.setInt(2, route.getBusStop().getId());
             pr.executeUpdate();
@@ -101,7 +101,7 @@ public class RouteDAO implements IRouteDAO {
     public void removeEntity(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("DELETE FROM Routes WHERE id=?");
+            pr = connection.prepareStatement("DELETE FROM routes WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
             LOGGER.info("The Route was deleted");
@@ -122,7 +122,7 @@ public class RouteDAO implements IRouteDAO {
         List<Route> routes = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Routes");
+            pr = connection.prepareStatement("SELECT * FROM routes");
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {

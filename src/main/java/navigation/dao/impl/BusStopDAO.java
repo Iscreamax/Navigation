@@ -27,7 +27,7 @@ public class BusStopDAO implements IBusStopDAO {
     public BusStop getEntityById(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Bus_stops WHERE id=?");
+            pr = connection.prepareStatement("SELECT * FROM bus_stops WHERE id=?");
             pr.setInt(1, id);
             pr.execute();
             rs = pr.getResultSet();
@@ -57,7 +57,7 @@ public class BusStopDAO implements IBusStopDAO {
     public void createEntity(BusStop busStop) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("INSERT INTO Bus_stops (name, latitude, longitude, cities_id) VALUES (?, ?, ?, ?)");
+            pr = connection.prepareStatement("INSERT INTO bus_stops (name, latitude, longitude, cities_id) VALUES (?, ?, ?, ?)");
             pr.setString(1, busStop.getName());
             pr.setFloat(2, busStop.getLatitude());
             pr.setFloat(3, busStop.getLongitude());
@@ -80,7 +80,7 @@ public class BusStopDAO implements IBusStopDAO {
     public void updateEntity(BusStop entity) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("UPDATE Bus_stops SET name=?, latitude=?, longitude=?, cities_id=? WHERE id=?");
+            pr = connection.prepareStatement("UPDATE bus_stops SET name=?, latitude=?, longitude=?, cities_id=? WHERE id=?");
             pr.setString(1, busStop.getName());
             pr.setFloat(2, busStop.getLatitude());
             pr.setFloat(3, busStop.getLongitude());
@@ -104,7 +104,7 @@ public class BusStopDAO implements IBusStopDAO {
     public void removeEntity(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("DELETE FROM Bus_stops WHERE id=?");
+            pr = connection.prepareStatement("DELETE FROM bus_stops WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
             LOGGER.info("The Bus stop was deleted");
@@ -125,7 +125,7 @@ public class BusStopDAO implements IBusStopDAO {
         List<BusStop> busStops = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Bus_stops");
+            pr = connection.prepareStatement("SELECT * FROM bus_stops");
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {

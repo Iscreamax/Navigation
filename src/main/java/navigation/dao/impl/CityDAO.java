@@ -25,7 +25,7 @@ public class CityDAO implements ICityDAO {
     public City getEntityById(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Cities WHERE id=?");
+            pr = connection.prepareStatement("SELECT * FROM cities WHERE id=?");
             pr.setInt(1, id);
             pr.execute();
             rs = pr.getResultSet();
@@ -52,7 +52,7 @@ public class CityDAO implements ICityDAO {
     public void createEntity(City entity) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("INSERT INTO Cities (name) VALUES (?)");
+            pr = connection.prepareStatement("INSERT INTO cities (name) VALUES (?)");
             pr.setString(1, city.getName());
             pr.executeUpdate();
             LOGGER.info("The City was created " + city);
@@ -73,7 +73,7 @@ public class CityDAO implements ICityDAO {
     public void updateEntity(City entity) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("UPDATE Cities SET name=? WHERE id=?");
+            pr = connection.prepareStatement("UPDATE cities SET name=? WHERE id=?");
             pr.setString(1, city.getName());
             pr.executeUpdate();
             LOGGER.info("The City was updated");
@@ -93,7 +93,7 @@ public class CityDAO implements ICityDAO {
     public void removeEntity(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("DELETE FROM Cities WHERE id=?");
+            pr = connection.prepareStatement("DELETE FROM cities WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
             LOGGER.info("The City was deleted");
@@ -114,7 +114,7 @@ public class CityDAO implements ICityDAO {
         List<City> cities = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Buses");
+            pr = connection.prepareStatement("SELECT * FROM buses");
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
