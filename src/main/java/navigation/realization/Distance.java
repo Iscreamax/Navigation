@@ -4,8 +4,7 @@ import navigation.dao.models.BusStop;
 
 public class Distance {
     public static double countDistance(BusStop firstBusStop,BusStop secondBusStop)
-//            double lat1, double lat2, double lon1,
-//                                  double lon2)
+
     {
 
         final int R = 6371;
