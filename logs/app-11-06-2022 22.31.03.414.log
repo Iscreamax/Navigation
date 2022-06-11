@@ -1,8 +1,0 @@
-2022-06-11 22:31:06,651 INFO n.d.i.BusStopDAO [main] There was a problem to show a list of Bus stops
-java.sql.SQLSyntaxErrorException: Table 'navigation.Bus_stops' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.29.jar:8.0.29]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-java-8.0.29.jar:8.0.29]
-	at navigation.dao.impl.BusStopDAO.showAll(BusStopDAO.java:129) ~[classes/:?]
-	at navigation.Main.main(Main.java:12) ~[classes/:?]
