@@ -96,7 +96,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>java.navigation.Main</mainClass>
+                            <mainClass>navigation.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
