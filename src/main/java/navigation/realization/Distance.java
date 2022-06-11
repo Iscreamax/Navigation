@@ -1,11 +1,11 @@
 package navigation.realization;
 
+import navigation.dao.impl.BusStopDAO;
+import navigation.dao.interfaces.IBusStopDAO;
 import navigation.dao.models.BusStop;
 
 public class Distance {
-    public static double countDistance(BusStop firstBusStop,BusStop secondBusStop)
-
-    {
+    public static double countDistance(BusStop firstBusStop, BusStop secondBusStop) {
 
         final int R = 6371;
 
@@ -23,4 +23,7 @@ public class Distance {
         return Math.sqrt(distance);
     }
 
+    public static void main(String[] args) {
+
+    }
 }
