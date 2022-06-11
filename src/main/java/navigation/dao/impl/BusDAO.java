@@ -25,7 +25,7 @@ public class BusDAO implements IBusDAO {
     public Bus getEntityById(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Buses WHERE id=?");
+            pr = connection.prepareStatement("SELECT * FROM buses WHERE id=?");
             pr.setInt(1, id);
             pr.execute();
             rs = pr.getResultSet();
@@ -55,7 +55,7 @@ public class BusDAO implements IBusDAO {
     public void createEntity(Bus bus) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("INSERT INTO Buses (number, max_count_of_passengers, start_time, end_time) VALUES (?, ?, ?, ?)");
+            pr = connection.prepareStatement("INSERT INTO buses (number, max_count_of_passengers, start_time, end_time) VALUES (?, ?, ?, ?)");
             pr.setString(1, bus.getNumber());
             pr.setInt(2, bus.getMaxCountOfPassengers());
             pr.setString(3, bus.getStartTime());
@@ -79,7 +79,7 @@ public class BusDAO implements IBusDAO {
     public void updateEntity(Bus bus) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("UPDATE Buses SET number=?, max_count_of_passengers=?, start_time=?, end_time=? WHERE id=?");
+            pr = connection.prepareStatement("UPDATE buses SET number=?, max_count_of_passengers=?, start_time=?, end_time=? WHERE id=?");
             pr.setString(1, bus.getNumber());
             pr.setInt(2, bus.getMaxCountOfPassengers());
             pr.setString(3, bus.getStartTime());
@@ -102,7 +102,7 @@ public class BusDAO implements IBusDAO {
     public void removeEntity(int id) {
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("DELETE FROM Buses WHERE id=?");
+            pr = connection.prepareStatement("DELETE FROM buses WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
             LOGGER.info("The Bus was deleted");
@@ -123,7 +123,7 @@ public class BusDAO implements IBusDAO {
         List<Bus> buses = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
-            pr = connection.prepareStatement("SELECT * FROM Buses");
+            pr = connection.prepareStatement("SELECT * FROM buses");
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
