@@ -13,10 +13,18 @@ import java.util.*;
 public class Time {
     private static final Logger LOGGER = LogManager.getLogger(Time.class);
     private static Calendar time = new GregorianCalendar();
+    private static final Calendar START_RUSH_HOUR = new GregorianCalendar();
+    private static final Calendar END_RUSH_HOUR = new GregorianCalendar();
     private static SimpleDateFormat sdf = new SimpleDateFormat("HH.mm");
 
-    public static void showAvailableTransport() {
-        try(Scanner sc = new Scanner(System.in)) {
+    public static List<Bus> showAvailableTransport() {
+        try {
+            START_RUSH_HOUR.setTime(sdf.parse("17.00"));
+            END_RUSH_HOUR.setTime(sdf.parse("19.00"));
+        } catch (ParseException e) {
+            LOGGER.info(e);
+        }
+        try (Scanner sc = new Scanner(System.in)) {
             LOGGER.info("Enter current time: (HH.mm)");
             time.setTime(sdf.parse(sc.next()));
         } catch (ParseException e) {
@@ -34,9 +42,37 @@ public class Time {
             } catch (ParseException e) {
                 LOGGER.info(e);
             }
-            if (sTime.before(time) && eTime.after(time)) sBuses.add(b);
+            if ((sTime.before(time) || sTime.compareTo(time) == 0) &&
+                    ((eTime.after(time)) || eTime.compareTo(time) == 0)) {
+                sBuses.add(b);
+            }
         }
-        sBuses.forEach(LOGGER::info);
+
+        if ((time.after(START_RUSH_HOUR) || time.compareTo(START_RUSH_HOUR) == 0) &&
+                (time.before(END_RUSH_HOUR) || time.compareTo(END_RUSH_HOUR) == 0)) {
+            for (Bus b : sBuses) {
+                b.setMaxCountOfPassengers(b.getMaxCountOfPassengers() - 40);
+                if (b.getMaxCountOfPassengers() < 1) sBuses.remove(b);
+            }
+        }
+        for(Bus b: sBuses){
+            LOGGER.info("The bus: "+b.getNumber()+" is available. Seats available: "
+                    +b.getMaxCountOfPassengers()+" Working time: "+b.getStartTime()+"-"+b.getEndTime());
+        }
+        LOGGER.info("----");
+        for (Bus b : sBuses) {
+            if (buses.contains(b)) buses.remove(b);
+        }
+        for (Bus b : buses) {
+            if (b.getMaxCountOfPassengers() < 1) {
+                LOGGER.info("The bus: " + b.getNumber() +
+                        " is unavailable. Reason: Rush Hours. Seats available is: " + b.getMaxCountOfPassengers());
+            } else {
+                LOGGER.info("The bus: " + b.getNumber() +
+                        " is unavailable. Reason: Working time is: " + b.getStartTime() + "-" + b.getEndTime());
+            }
+        }
+        return sBuses;
     }
 
     public static void main(String[] args) {

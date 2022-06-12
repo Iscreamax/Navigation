@@ -5,12 +5,12 @@ import navigation.dao.interfaces.IBusStopDAO;
 import navigation.dao.models.BusStop;
 
 public class Djikstra {
-    private static int max = Integer.MAX_VALUE;
-    private static double dist[] = new double[20];
-    private static int prve[] = new int[20];
+    private static final int max = Integer.MAX_VALUE;
+    private static final double[] dist = new double[20];
+    private static final int[] prve = new int[20];
     public static IBusStopDAO busStopDAO = new BusStopDAO();
     public static IBusStopDAO bbusStopDAO = new BusStopDAO();
-    private static double a[][] = {
+    private static final double[][] a = {
             {0, countDistance(1, 2), max, countDistance(1, 4), countDistance(1, 5), max, max, countDistance(1, 8), max, countDistance(1, 10), max, max, max, max, max, max, max, max, max, max},
             {countDistance(1, 2), 0, countDistance(1, 3), max, max, max, max, max, max, max, max, max, max, max, max, max, max, max, max, max},
             {max, countDistance(2, 3), 0, countDistance(3, 4), max, max, max, max, max, max, max, max, max, max, max, max, max, max, max, max},
@@ -21,7 +21,7 @@ public class Djikstra {
             {countDistance(1, 8), max, max, max, max, max, countDistance(7, 8), 0, countDistance(8, 9), countDistance(8, 10), max, max, max, max, max, max, max, max, max, max, max, max},
             {max, max, max, max, countDistance(5, 9), max, max, countDistance(8, 9), 0, countDistance(9, 10), max, max, max, max, max, max, max, max, max, max, max, max},
             {countDistance(1, 10), max, max, max, countDistance(5, 10), countDistance(6, 10), max, countDistance(8, 10), countDistance(9, 10), 0, max, max, max, countDistance(10, 14), max, max, max, max, max, countDistance(10, 20)},
-            {max, max, max, max, max, max, max, max, max, max,  0, countDistance(11, 12), max, max, max, max, max, max, max, countDistance(11, 20)},
+            {max, max, max, max, max, max, max, max, max, max, 0, countDistance(11, 12), max, max, max, max, max, max, max, countDistance(11, 20)},
             {max, max, max, max, max, max, max, max, max, max, countDistance(11, 12), 0, countDistance(12, 13), max, countDistance(12, 15), max, max, max, max, max},
             {max, max, max, max, max, max, max, max, max, max, max, countDistance(12, 13), 0, countDistance(13, 14), max, max, max, max, max, max},
             {max, max, max, max, max, max, max, max, max, countDistance(10, 14), max, max, countDistance(13, 14), 0, max, max, max, max, countDistance(14, 19), max},
@@ -55,7 +55,7 @@ public class Djikstra {
         return Math.sqrt(distance);
     }
 
-    public void dijkstra(int v, double[][] a, double dist[], int prve[]) {
+    public void dijkstra(int v, double[][] a, double[] dist, int[] prve) {
         int n = dist.length - 1;
         boolean[] s = new boolean[n + 1];
 
@@ -74,7 +74,7 @@ public class Djikstra {
             int u = v;
             for (int j = 1; j <= n; j++) {
                 if ((!s[j]) && dist[j] < temp) {
-                    temp =  dist[j];
+                    temp = dist[j];
                 }
             }
             s[u] = true;
@@ -109,7 +109,7 @@ public class Djikstra {
 
     public static void main(String[] args) {
 
-       Djikstra D = new Djikstra();
+        Djikstra D = new Djikstra();
         D.dijkstra(9, a, dist, prve);
         D.outPath(9, prve, dist);
     }
