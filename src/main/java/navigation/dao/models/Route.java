@@ -1,17 +1,18 @@
 package navigation.dao.models;
 
+import java.util.Objects;
+
 public class Route {
     private int id;
-    private Bus bus;
-    private BusStop busStop;
+    private int busId;
+    private int busStopId;
 
     public Route() {
     }
-
-    public Route(int id, Bus bus, BusStop busStop) {
+    public Route(int id, int busId, int busStopId) {
         this.id = id;
-        this.bus = bus;
-        this.busStop = busStop;
+        this.busId = busId;
+        this.busStopId = busStopId;
     }
 
     public int getId() {
@@ -22,48 +23,41 @@ public class Route {
         this.id = id;
     }
 
-    public Bus getBus() {
-        return bus;
+    public int getBusId() {
+        return busId;
     }
 
-    public void setBus(Bus bus) {
-        this.bus = bus;
+    public void setBusId(int busId) {
+        this.busId = busId;
     }
 
-    public BusStop getBusStop() {
-        return busStop;
+    public int getBusStopId() {
+        return busStopId;
     }
 
-    public void setBusStop(BusStop busStop) {
-        this.busStop = busStop;
+    public void setBusStopId(int busStopId) {
+        this.busStopId = busStopId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Route)) return false;
-
         Route route = (Route) o;
-
-        if (id != route.id) return false;
-        if (bus != null ? !bus.equals(route.bus) : route.bus != null) return false;
-        return busStop != null ? busStop.equals(route.busStop) : route.busStop == null;
+        return id == route.id && busId == route.busId && busStopId == route.busStopId;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (bus != null ? bus.hashCode() : 0);
-        result = 31 * result + (busStop != null ? busStop.hashCode() : 0);
-        return result;
+        return Objects.hash(id, busId, busStopId);
     }
 
     @Override
     public String toString() {
         return "Route{" +
                 "id=" + id +
-                ", bus=" + bus +
-                ", busStop=" + busStop +
+                ", busId=" + busId +
+                ", busStopId=" + busStopId +
                 '}';
     }
 }

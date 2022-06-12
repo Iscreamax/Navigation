@@ -1,4 +1,4 @@
-package navigation.realization;
+package navigation.services;
 
 import navigation.dao.impl.BusDAO;
 import navigation.dao.interfaces.IBusDAO;
