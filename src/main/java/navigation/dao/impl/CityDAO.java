@@ -110,7 +110,7 @@ public class CityDAO implements ICityDAO {
     }
 
     @Override
-    public List<City> showAll() {
+    public List<City> getAllCities() {
         List<City> cities = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();

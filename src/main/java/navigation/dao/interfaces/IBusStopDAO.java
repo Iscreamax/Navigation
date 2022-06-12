@@ -5,5 +5,5 @@ import navigation.dao.models.BusStop;
 import java.util.List;
 
 public interface IBusStopDAO extends IBaseDAO<BusStop> {
-    List<BusStop> showAll();
+    List<BusStop> getAllBusStops();
 }

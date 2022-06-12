@@ -36,8 +36,7 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setName(rs.getString("name"));
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
-                city.setId(rs.getInt("cities_id"));
-                busStop.setCity(city);
+                busStop.setCity(rs.getString("cities_id"));
             }
         } catch (SQLException e) {
             LOGGER.info("There was some problem to find Bus stop by id", e);
@@ -61,7 +60,7 @@ public class BusStopDAO implements IBusStopDAO {
             pr.setString(1, busStop.getName());
             pr.setFloat(2, busStop.getLatitude());
             pr.setFloat(3, busStop.getLongitude());
-            pr.setInt(4, busStop.getCity().getId());
+            pr.setString(4, busStop.getCity());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info("There was a problem to insert into Bus stop", e);
@@ -84,7 +83,7 @@ public class BusStopDAO implements IBusStopDAO {
             pr.setString(1, busStop.getName());
             pr.setFloat(2, busStop.getLatitude());
             pr.setFloat(3, busStop.getLongitude());
-            pr.setInt(4, busStop.getCity().getId());
+            pr.setString(4, busStop.getCity());
             pr.executeUpdate();
             LOGGER.info("The Bus stop was updated");
         } catch (SQLException e) {
@@ -121,7 +120,7 @@ public class BusStopDAO implements IBusStopDAO {
     }
 
     @Override
-    public List<BusStop> showAll() {
+    public List<BusStop> getAllBusStops() {
         List<BusStop> busStops = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
@@ -133,7 +132,7 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setName(rs.getString("name"));
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
-              //  busStop.setCity(rs.getInt(""));
+                //  busStop.setCity(rs.getInt(""));
                 busStops.add(busStop);
                 LOGGER.info("List of Bus stops" + busStops + " ");
             }

@@ -119,7 +119,7 @@ public class BusDAO implements IBusDAO {
     }
 
     @Override
-    public List<Bus> showAll() {
+    public List<Bus> getAllBuses() {
         List<Bus> buses = new ArrayList<>();
         try {
             connection = connectionPool.getConnection();
