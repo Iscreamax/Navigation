@@ -35,10 +35,8 @@ public class RouteDAO implements IRouteDAO {
             rs = pr.getResultSet();
             while (rs.next()) {
                 route.setId(rs.getInt("id"));
-                bus.setId(rs.getInt("buses_id"));
-                route.setBus(bus);
-                busStop.setId(rs.getInt("bus_stops_id"));
-                route.setBusStop(busStop);
+                route.setBusId(rs.getInt("busses_id"));
+                route.setBusStopId(rs.getInt("bus_stops_id"));
             }
         } catch (SQLException e) {
             LOGGER.info("There was some problem to find the Route by id", e);
@@ -59,8 +57,8 @@ public class RouteDAO implements IRouteDAO {
         try {
             connection = connectionPool.getConnection();
             pr = connection.prepareStatement("INSERT INTO routes (buses_id, bus_stops_id) VALUES (?, ?)");
-            pr.setInt(1, route.getBus().getId());
-            pr.setInt(2, route.getBusStop().getId());
+            pr.setInt(1, route.getBusId());
+            pr.setInt(2, route.getBusStopId());
             pr.executeUpdate();
             LOGGER.info("The Route was created");
         } catch (SQLException e) {
@@ -81,8 +79,8 @@ public class RouteDAO implements IRouteDAO {
         try {
             connection = connectionPool.getConnection();
             pr = connection.prepareStatement("UPDATE routes SET buses_id=?, bus_stops_id=? ");
-            pr.setInt(1, route.getBus().getId());
-            pr.setInt(2, route.getBusStop().getId());
+            pr.setInt(1, route.getBusId());
+            pr.setInt(2, route.getBusStopId());
             pr.executeUpdate();
             LOGGER.info("The Route was updated");
         } catch (SQLException e) {
@@ -126,8 +124,10 @@ public class RouteDAO implements IRouteDAO {
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
-             //   route.setBus(rs.getInt("buses_id"));
-             //   route.setBusStop(rs.getInt("bus_stops_id"));
+             Route route = new Route();
+             route.setId(rs.getInt("id"));
+             route.setBusId(rs.getInt("buses_id"));
+             route.setBusStopId(rs.getInt("bus_stops_id"));
                 routes.add(route);
             }
         }  catch (SQLException e) {

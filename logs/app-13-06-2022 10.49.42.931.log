@@ -1,0 +1,39 @@
+2022-06-13 10:49:54,556 INFO n.r.Graph [main] 1
+2022-06-13 10:49:54,616 INFO n.r.Graph [main] 3
+2022-06-13 10:49:54,666 INFO n.r.Graph [main] 2
+2022-06-13 10:49:54,726 INFO n.r.Graph [main] 4
+2022-06-13 10:49:54,776 INFO n.r.Graph [main] 6
+2022-06-13 10:49:54,836 INFO n.r.Graph [main] 8
+2022-06-13 10:49:54,886 INFO n.r.Graph [main] 7
+2022-06-13 10:49:54,946 INFO n.r.Graph [main] 5
+2022-06-13 10:49:54,996 INFO n.r.Graph [main] 9
+2022-06-13 10:49:55,056 INFO n.r.Graph [main] 13
+2022-06-13 10:49:55,106 INFO n.r.Graph [main] 19
+2022-06-13 10:49:55,156 INFO n.r.Graph [main] 14
+2022-06-13 10:49:55,216 INFO n.r.Graph [main] 12
+2022-06-13 10:49:55,266 INFO n.r.Graph [main] 18
+2022-06-13 10:49:55,328 INFO n.r.Graph [main] 16
+2022-06-13 10:49:55,388 INFO n.r.Graph [main] 17
+2022-06-13 10:49:55,438 INFO n.r.Graph [main] 10
+2022-06-13 10:49:55,488 INFO n.r.Graph [main] 11
+2022-06-13 10:49:55,548 INFO n.r.Graph [main] 15
+2022-06-13 10:50:54,509 INFO n.r.Graph [main] BusStop{id=3, name='Mihalovo', latitude=53.8655, longitude=27.5303, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,509 INFO n.r.Graph [main] BusStop{id=12, name='Truda', latitude=54.0106, longitude=28.1374, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=2, name='Petrovschina', latitude=53.864, longitude=27.5419, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=15, name='Krupskay', latitude=54.0252, longitude=28.1, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=9, name='Partizanskay', latitude=53.8822, longitude=27.5195, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=14, name='Kamenchikova', latitude=54.0176, longitude=28.0612, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=10, name='Mogilevskay', latitude=53.8806, longitude=27.5835, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,519 INFO n.r.Graph [main] BusStop{id=8, name='Pervomayskay', latitude=53.8844, longitude=27.5346, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=11, name='Vokzal', latitude=54.0129, longitude=28.1436, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=13, name='Electrosety', latitude=54.0074, longitude=28.1141, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=5, name='Lenina', latitude=53.8727, longitude=27.5272, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=16, name='Nagornaya', latitude=54.0287, longitude=28.1101, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=6, name='Octobrs', latitude=53.8777, longitude=27.5442, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=7, name='Pobedy', latitude=53.8799, longitude=27.5356, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=19, name='Kiseleva', latitude=54.0453, longitude=28.1081, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=18, name='Makayenka', latitude=54.0353, longitude=28.0841, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,529 INFO n.r.Graph [main] BusStop{id=1, name='Malinovka', latitude=53.8633, longitude=27.5341, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,539 INFO n.r.Graph [main] BusStop{id=17, name='Gromyko', latitude=54.0253, longitude=28.0831, city=City{id=2, name='null'}}
+2022-06-13 10:50:54,539 INFO n.r.Graph [main] BusStop{id=4, name='Grushevka', latitude=53.87, longitude=27.5339, city=City{id=1, name='null'}}
+2022-06-13 10:50:54,559 INFO n.r.Graph [main] From point Malinovka to point Petrovschina the distance is 517.3918637655828

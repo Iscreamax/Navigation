@@ -2,6 +2,7 @@ package navigation.dao.impl;
 
 import navigation.dao.connector.ConnectionPool;
 import navigation.dao.interfaces.IBusStopDAO;
+import navigation.dao.interfaces.ICityDAO;
 import navigation.dao.models.BusStop;
 import navigation.dao.models.City;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +38,8 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
                 city.setId(rs.getInt("cities_id"));
+                ICityDAO cityDAO = new CityDAO();
+                city.setName(cityDAO.getEntityById(rs.getInt("cities_id")).getName());
                 busStop.setCity(city);
             }
         } catch (SQLException e) {
@@ -133,9 +136,11 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setName(rs.getString("name"));
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
-              //  busStop.setCity(rs.getInt(""));
+                ICityDAO cityDAO = new CityDAO();
+                City city = new City(rs.getInt("cities_id"),rs.getString("name"));
+                busStop.setCity(city);
                 busStops.add(busStop);
-                LOGGER.info("List of Bus stops" + busStops + " ");
+                LOGGER.info("List of Bus stops" + busStop + " ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of Bus stops", e);
