@@ -137,8 +137,8 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
                 ICityDAO cityDAO = new CityDAO();
-                busStop.setCity(cityDAO.getEntityById(rs.getInt("cities_id")));
-              //  busStop.setCity(rs.getInt(""));
+                City city = new City(rs.getInt("cities_id"),rs.getString("name"));
+                busStop.setCity(city);
                 busStops.add(busStop);
                 LOGGER.info("List of Bus stops" + busStop + " ");
             }

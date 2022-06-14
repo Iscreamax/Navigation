@@ -6,14 +6,17 @@ import navigation.dao.impl.BusStopDAO;
 import navigation.dao.interfaces.IBusDAO;
 import navigation.dao.interfaces.IBusStopDAO;
 import navigation.dao.models.Bus;
+import navigation.realization.vert.Distance;
 import navigation.realization.vert.Edge;
 import navigation.realization.vert.PathFinder;
-import navigation.realization.vert.Distance;
 import navigation.realization.vert.Vertex;
 import navigation.services.Time;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -122,11 +125,15 @@ public class Main {
             IBusStopDAO busStopDAO = new BusStopDAO();
             LOGGER.info("Enter the stop you would like to travel from: ");
             String firstBusStop = scan.nextLine();
+            if (!vertexes.containsKey(firstBusStop))
+                throw new IllegalArgumentException("Incorrect value: " + firstBusStop);
             LOGGER.info(firstBusStop);
             PathFinder pathFinder = new PathFinder();
             pathFinder.ShortestP(vertexes.get(firstBusStop));
             LOGGER.info("Enter the stop where you would like to get to: ");
             String secondBusStop = scan.nextLine();
+            if (!vertexes.containsKey(secondBusStop))
+                throw new IllegalArgumentException("Incorrect value: " + secondBusStop);
             listVert = pathFinder.getShortestPathTo(vertexes.get(secondBusStop));
             LOGGER.info(secondBusStop);
             LOGGER.info("The shortest distance:" + vertexes.get(secondBusStop).getDist() + " m.");
@@ -136,18 +143,18 @@ public class Main {
         for (int i = 0; i < listVert.size(); i++) {
 
             if (i == 0) {
-                LOGGER.info("At the bus stop :" + listVert.get(i));
+                LOGGER.info("At the bus stop :" + listVert.get(i) + " - ");
                 LOGGER.info("Get on the bus № " + listVert.get(i + 1).getBusNumber());
                 bus = listVert.get(i + 1).getBusNumber();
             } else if (!bus.equals(listVert.get(i).getBusNumber()) && i < listVert.size() - 2) {
-                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i));
+                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i) + " - ");
                 LOGGER.info("Transfer to the bus № " + listVert.get(i).getBusNumber());
                 bus = listVert.get(i + 1).getBusNumber();
             } else if (i == listVert.size() - 1) {
-                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i));
+                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i) + " - ");
                 LOGGER.info("You have reached your destination!");
             } else {
-                LOGGER.info("You will pass the bus stop  :" + listVert.get(i));
+                LOGGER.info("You will pass the bus stop  :" + listVert.get(i) + " - ");
             }
 
         }

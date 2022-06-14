@@ -10,12 +10,14 @@ import navigation.dao.interfaces.ICityDAO;
 import navigation.dao.interfaces.IRouteDAO;
 import navigation.dao.models.Bus;
 import navigation.dao.models.BusStop;
+import navigation.dao.models.City;
 import navigation.dao.models.Route;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Routes {
     private static final Logger LOGGER = LogManager.getLogger(Routes.class);
@@ -57,30 +59,33 @@ public class Routes {
     }
 
 
-    public static List<Bus> showAvailableBuses(BusStop busStop){
-IRouteDAO routeDAO = new RouteDAO();
-List<Bus> buses = new ArrayList<>();
+    public static List<Bus> showAvailableBuses(BusStop busStop) {
+        IRouteDAO routeDAO = new RouteDAO();
+        List<Bus> buses = new ArrayList<>();
 
-List<Route> routes = routeDAO.showAll().stream().filter(f->f.getBusStopId()==busStop.getId()).toList();
-for(Route r:routes){
-    IBusDAO busDAO =new BusDAO();
-    Bus bus = busDAO.getEntityById(r.getBusId());
-    buses.add(bus);
-}
-buses.forEach(LOGGER::info);
-return buses;
+        List<Route> routes = routeDAO.showAll().stream().filter(f -> f.getBusStopId() == busStop.getId()).toList();
+        for (Route r : routes) {
+            IBusDAO busDAO = new BusDAO();
+            Bus bus = busDAO.getEntityById(r.getBusId());
+            buses.add(bus);
+        }
+        buses.forEach(LOGGER::info);
+        return buses;
 
     }
 
+
+
+
     public static void main(String[] args) {
 //         LOGGER.info(showTransportRoutes("I999"));
-        IBusStopDAO busStopDAO = new BusStopDAO();
-        BusStop busStop = busStopDAO.getEntityById(12);
-        IBusDAO busDAO = new BusDAO();
-        Bus bus = busDAO.getEntityById(1);
-        showBusStops(bus);
+//        IBusStopDAO busStopDAO = new BusStopDAO();
+//        BusStop busStop = busStopDAO.getEntityById(12);
+//        IBusDAO busDAO = new BusDAO();
+//        Bus bus = busDAO.getEntityById(1);
+        //showBusStops(bus);
 //        LOGGER.info(busStop);
 //        showAvailableBuses(busStop);
-        busStopDAO.showAll();
+        // busStopDAO.showAll();
     }
 }
