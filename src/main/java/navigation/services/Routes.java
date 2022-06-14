@@ -78,7 +78,6 @@ public class Routes {
         LOGGER.info("You can go from Minsk to Zhodino.");
         LOGGER.info("Minsk stops: ");
         List<BusStop> busStops = busStopDAO.showAll();
-        ICityDAO cityDAO = new CityDAO();
         busStops.stream().filter(f->f.getCity().getId()==1).map(f->"Minsk stop: "+f.getName()).forEach(LOGGER::info);
         LOGGER.info("Zhodino stops: ");
         busStops.stream().filter(f->f.getCity().getId()==2).map(f->"Zhodino stop: "+f.getName()).forEach(LOGGER::info);
