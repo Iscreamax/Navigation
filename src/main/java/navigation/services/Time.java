@@ -55,9 +55,9 @@ public class Time {
                 if (b.getMaxCountOfPassengers() < 1) sBuses.remove(b);
             }
         }
-        for(Bus b: sBuses){
-            LOGGER.info("The bus: "+b.getNumber()+" is available. Seats available: "
-                    +b.getMaxCountOfPassengers()+" Working time: "+b.getStartTime()+"-"+b.getEndTime());
+        for (Bus b : sBuses) {
+            LOGGER.info("The bus: " + b.getNumber() + " is available. Seats available: "
+                    + b.getMaxCountOfPassengers() + " Working time: " + b.getStartTime() + "-" + b.getEndTime());
         }
         LOGGER.info("----");
         for (Bus b : sBuses) {
@@ -78,4 +78,5 @@ public class Time {
     public static void main(String[] args) {
         showAvailableTransport();
     }
+
 }
