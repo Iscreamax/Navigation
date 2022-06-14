@@ -135,7 +135,7 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setLongitude(rs.getFloat("longitude"));
               //  busStop.setCity(rs.getInt(""));
                 busStops.add(busStop);
-                LOGGER.info("List of Bus stops" + busStops + " ");
+//                LOGGER.info("List of Bus stops" + busStops + " ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of Bus stops", e);

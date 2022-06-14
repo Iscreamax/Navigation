@@ -36,7 +36,6 @@ public class BusDAO implements IBusDAO {
                 bus.setStartTime(rs.getString("start_time"));
                 bus.setEndTime(rs.getString("end_time"));
             }
-            LOGGER.info("Bus was found by id" + bus);
         } catch (SQLException e) {
             LOGGER.info("There was a problem with GET ENTITY BY ID", e);
         } finally {
