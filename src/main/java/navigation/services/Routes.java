@@ -17,7 +17,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Routes {
     private static final Logger LOGGER = LogManager.getLogger(Routes.class);
@@ -74,18 +73,19 @@ public class Routes {
 
     }
 
-
-
+    public static void getTransport() {
+        IBusStopDAO busStopDAO = new BusStopDAO();
+        LOGGER.info("You can go from Minsk to Zhodino.");
+        LOGGER.info("Minsk stops: ");
+        List<BusStop> busStops = busStopDAO.showAll();
+        ICityDAO cityDAO = new CityDAO();
+        busStops.stream().filter(f->f.getCity().getId()==1).map(f->"Minsk stop: "+f.getName()).forEach(LOGGER::info);
+        LOGGER.info("Zhodino stops: ");
+        busStops.stream().filter(f->f.getCity().getId()==2).map(f->"Zhodino stop: "+f.getName()).forEach(LOGGER::info);
+    }
 
     public static void main(String[] args) {
-//         LOGGER.info(showTransportRoutes("I999"));
-//        IBusStopDAO busStopDAO = new BusStopDAO();
-//        BusStop busStop = busStopDAO.getEntityById(12);
-//        IBusDAO busDAO = new BusDAO();
-//        Bus bus = busDAO.getEntityById(1);
-        //showBusStops(bus);
-//        LOGGER.info(busStop);
-//        showAvailableBuses(busStop);
-        // busStopDAO.showAll();
+
+        getTransport();
     }
 }

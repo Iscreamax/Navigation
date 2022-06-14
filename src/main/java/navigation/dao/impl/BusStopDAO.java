@@ -132,6 +132,7 @@ public class BusStopDAO implements IBusStopDAO {
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
+                BusStop busStop = new BusStop();
                 busStop.setId(rs.getInt("id"));
                 busStop.setName(rs.getString("name"));
                 busStop.setLatitude(rs.getFloat("latitude"));
@@ -140,7 +141,7 @@ public class BusStopDAO implements IBusStopDAO {
                 City city = new City(rs.getInt("cities_id"),rs.getString("name"));
                 busStop.setCity(city);
                 busStops.add(busStop);
-                LOGGER.info("List of Bus stops" + busStop + " ");
+//                LOGGER.info("List of Bus stops" + busStop + " ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of Bus stops", e);
