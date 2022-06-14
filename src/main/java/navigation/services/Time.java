@@ -12,10 +12,10 @@ import java.util.*;
 
 public class Time {
     private static final Logger LOGGER = LogManager.getLogger(Time.class);
-    private static Calendar time = new GregorianCalendar();
+    public static Calendar time = new GregorianCalendar();
     private static final Calendar START_RUSH_HOUR = new GregorianCalendar();
     private static final Calendar END_RUSH_HOUR = new GregorianCalendar();
-    private static SimpleDateFormat sdf = new SimpleDateFormat("HH.mm");
+    public static SimpleDateFormat sdf = new SimpleDateFormat("HH.mm");
 
     public static List<Bus> showAvailableTransport() {
         try {
@@ -24,12 +24,14 @@ public class Time {
         } catch (ParseException e) {
             LOGGER.info(e);
         }
-        try (Scanner sc = new Scanner(System.in)) {
-            LOGGER.info("Enter current time: (HH.mm)");
+        Scanner sc = new Scanner(System.in);
+        LOGGER.info("Enter current time: (HH.mm)");
+        try {
             time.setTime(sdf.parse(sc.next()));
         } catch (ParseException e) {
-            LOGGER.info("Incorrect value", e);
+            LOGGER.info(e);
         }
+
         IBusDAO iBusDAO = new BusDAO();
         List<Bus> buses = iBusDAO.showAll();
         Calendar sTime = new GregorianCalendar();
@@ -55,11 +57,11 @@ public class Time {
                 if (b.getMaxCountOfPassengers() < 1) sBuses.remove(b);
             }
         }
-        for (Bus b : sBuses) {
-            LOGGER.info("The bus: " + b.getNumber() + " is available. Seats available: "
-                    + b.getMaxCountOfPassengers() + " Working time: " + b.getStartTime() + "-" + b.getEndTime());
+        for(Bus b: sBuses){
+            LOGGER.info("The bus: "+b.getNumber()+" is available. Seats available: "
+                    +b.getMaxCountOfPassengers()+" Working time: "+b.getStartTime()+"-"+b.getEndTime());
         }
-        LOGGER.info("----");
+        LOGGER.info("-----------------------------------------------------------------------------");
         for (Bus b : sBuses) {
             if (buses.contains(b)) buses.remove(b);
         }
@@ -75,8 +77,5 @@ public class Time {
         return sBuses;
     }
 
-    public static void main(String[] args) {
-        showAvailableTransport();
-    }
 
 }

@@ -6,9 +6,6 @@ public class Edge {
     private Vertex targetVert;
     private String busNumber;
 
-    public Edge() {
-
-    }
 
     public Edge(double weight, Vertex startVert, Vertex targetVert, String busNumber) {
         this.weight = weight;
