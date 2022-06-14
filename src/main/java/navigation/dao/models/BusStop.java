@@ -2,7 +2,7 @@ package navigation.dao.models;
 
 import java.util.List;
 
-public class BusStop {
+public class BusStop implements Comparable {
     private int id;
     private String name;
     private float latitude;
@@ -102,5 +102,10 @@ public class BusStop {
                 ", longitude=" + longitude +
                 ", city=" + city +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

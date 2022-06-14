@@ -1,0 +1,20 @@
+2022-06-13 10:51:12,205 INFO n.r.Graph [main] 1
+2022-06-13 10:51:12,255 INFO n.r.Graph [main] 3
+2022-06-13 10:51:12,295 INFO n.r.Graph [main] 2
+2022-06-13 10:51:12,345 INFO n.r.Graph [main] 4
+2022-06-13 10:51:12,385 INFO n.r.Graph [main] 6
+2022-06-13 10:51:12,435 INFO n.r.Graph [main] 8
+2022-06-13 10:51:12,476 INFO n.r.Graph [main] 7
+2022-06-13 10:51:12,515 INFO n.r.Graph [main] 5
+2022-06-13 10:51:12,556 INFO n.r.Graph [main] 9
+2022-06-13 10:51:12,606 INFO n.r.Graph [main] 13
+2022-06-13 10:51:12,647 INFO n.r.Graph [main] 19
+2022-06-13 10:51:12,687 INFO n.r.Graph [main] 14
+2022-06-13 10:51:12,727 INFO n.r.Graph [main] 12
+2022-06-13 10:51:12,777 INFO n.r.Graph [main] 18
+2022-06-13 10:51:12,824 INFO n.r.Graph [main] 16
+2022-06-13 10:51:12,874 INFO n.r.Graph [main] 17
+2022-06-13 10:51:12,914 INFO n.r.Graph [main] 10
+2022-06-13 10:51:12,954 INFO n.r.Graph [main] 11
+2022-06-13 10:51:12,994 INFO n.r.Graph [main] 15
+2022-06-13 10:51:37,396 INFO n.r.Graph [main] BusStop{id=1, name='Malinovka', latitude=53.8633, longitude=27.5341, city=City{id=1, name='null'}}

@@ -1,0 +1,61 @@
+2022-06-13 11:19:42,842 INFO n.r.Graph [main] 1
+2022-06-13 11:20:34,272 INFO n.r.Graph [main] 3
+2022-06-13 11:21:12,157 INFO n.r.Graph [main] 2
+2022-06-13 11:30:19,921 INFO n.r.Graph [main] 4
+2022-06-13 11:33:04,296 INFO n.d.i.BusStopDAO [main] There was some problem to find Bus stop by id
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 691 128 milliseconds ago. The last packet sent successfully to the server was 691 168 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at navigation.dao.impl.BusStopDAO.getEntityById(BusStopDAO.java:32) ~[classes/:?]
+	at navigation.dao.impl.BusStopDAO.getEntityById(BusStopDAO.java:17) ~[classes/:?]
+	at navigation.realization.Graphpreveous.path(Graph.java:113) ~[classes/:?]
+	at navigation.Main.main(Main.java:41) ~[classes/:?]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 691 128 milliseconds ago. The last packet sent successfully to the server was 691 168 milliseconds ago.
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:581) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:665) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:893) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	... 5 more
+Caused by: java.net.SocketException: Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера
+	at sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:325) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350) ~[?:?]
+	at sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803) ~[?:?]
+	at java.net.Socket$SocketInputStream.read(Socket.java:966) ~[?:?]
+	at sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478) ~[?:?]
+	at sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472) ~[?:?]
+	at sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1455) ~[?:?]
+	at sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1059) ~[?:?]
+	at java.io.FilterInputStream.read(FilterInputStream.java:132) ~[?:?]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeaderLocal(SimplePacketReader.java:81) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:575) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:761) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:700) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1051) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:665) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:893) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	... 5 more

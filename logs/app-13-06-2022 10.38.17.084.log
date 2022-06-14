@@ -1,0 +1,21 @@
+2022-06-13 10:38:28,538 INFO n.r.Graph [main] 1
+2022-06-13 10:38:28,598 INFO n.r.Graph [main] 3
+2022-06-13 10:38:28,648 INFO n.r.Graph [main] 2
+2022-06-13 10:38:28,698 INFO n.r.Graph [main] 4
+2022-06-13 10:38:28,758 INFO n.r.Graph [main] 6
+2022-06-13 10:38:28,808 INFO n.r.Graph [main] 8
+2022-06-13 10:38:28,868 INFO n.r.Graph [main] 7
+2022-06-13 10:38:28,919 INFO n.r.Graph [main] 5
+2022-06-13 10:38:28,968 INFO n.r.Graph [main] 9
+2022-06-13 10:38:29,029 INFO n.r.Graph [main] 13
+2022-06-13 10:38:29,079 INFO n.r.Graph [main] 19
+2022-06-13 10:38:29,138 INFO n.r.Graph [main] 14
+2022-06-13 10:38:29,188 INFO n.r.Graph [main] 12
+2022-06-13 10:38:29,239 INFO n.r.Graph [main] 18
+2022-06-13 10:38:29,299 INFO n.r.Graph [main] 16
+2022-06-13 10:38:29,349 INFO n.r.Graph [main] 17
+2022-06-13 10:38:29,409 INFO n.r.Graph [main] 10
+2022-06-13 10:38:29,459 INFO n.r.Graph [main] 11
+2022-06-13 10:38:29,519 INFO n.r.Graph [main] 15
+2022-06-13 10:38:56,633 INFO n.r.Graph [main] BusStop{id=15, name='Krupskay', latitude=54.0252, longitude=28.1, city=City{id=2, name='null'}}
+2022-06-13 10:38:56,643 INFO n.r.Graph [main] From point Malinovka to point Petrovschina the distance is 517.3918637655828
