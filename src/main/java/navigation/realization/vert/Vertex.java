@@ -1,10 +1,14 @@
 package navigation.realization.vert;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Vertex implements Comparable {
+    private static final Logger LOGGER = LogManager.getLogger(Vertex.class);
 
     private boolean visited;
     private String name;
@@ -13,6 +17,8 @@ public class Vertex implements Comparable {
     private Vertex pr;
     private String busNumber;
 
+    public Vertex() {
+    }
 
     public Vertex(String name) {
         this.name = name;
@@ -34,8 +40,8 @@ public class Vertex implements Comparable {
 
     public void setName(String name) {
         this.name = name;
-    }
 
+    }
 
     public List<Edge> getList() {
         return List;
