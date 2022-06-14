@@ -12,6 +12,7 @@ import navigation.realization.vert.Edge;
 import navigation.realization.vert.PathFinder;
 import navigation.realization.vert.Distance;
 import navigation.realization.vert.Vertex;
+import navigation.services.Routes;
 import navigation.services.Time;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -71,6 +72,7 @@ public class Main {
 
         List<Vertex> listVert;
         List<Bus> list = Time.showAvailableTransport();
+        Routes.getTransport();
 
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getNumber().contains(iBusDAO.getEntityById(1).getNumber())) {
