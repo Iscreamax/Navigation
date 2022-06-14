@@ -3,8 +3,10 @@ package navigation;
 
 import navigation.dao.impl.BusDAO;
 import navigation.dao.impl.BusStopDAO;
+import navigation.dao.impl.CityDAO;
 import navigation.dao.interfaces.IBusDAO;
 import navigation.dao.interfaces.IBusStopDAO;
+import navigation.dao.interfaces.ICityDAO;
 import navigation.dao.models.Bus;
 import navigation.realization.vert.Edge;
 import navigation.realization.vert.PathFinder;
@@ -24,45 +26,46 @@ public class Main {
     public static void main(String[] args) {
         IBusStopDAO iBusStopDAO = new BusStopDAO();
         Map<String, Vertex> vertexes = new HashMap();
-        Vertex malinovka = new Vertex(iBusStopDAO.getEntityById(1).getName());
+        ICityDAO iCityDAO = new CityDAO();
+        Vertex malinovka = new Vertex(iBusStopDAO.getEntityById(1).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Malinovka", malinovka);
-        Vertex petrovschina = new Vertex(iBusStopDAO.getEntityById(2).getName());
+        Vertex petrovschina = new Vertex(iBusStopDAO.getEntityById(2).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Petrovschina", petrovschina);
-        Vertex mihalovo = new Vertex(iBusStopDAO.getEntityById(3).getName());
+        Vertex mihalovo = new Vertex(iBusStopDAO.getEntityById(3).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Mihalovo", mihalovo);
-        Vertex grushevka = new Vertex(iBusStopDAO.getEntityById(4).getName());
+        Vertex grushevka = new Vertex(iBusStopDAO.getEntityById(4).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Grushevka", grushevka);
-        Vertex lenina = new Vertex(iBusStopDAO.getEntityById(5).getName());
+        Vertex lenina = new Vertex(iBusStopDAO.getEntityById(5).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Lenina", lenina);
-        Vertex octobrs = new Vertex(iBusStopDAO.getEntityById(6).getName());
+        Vertex octobrs = new Vertex(iBusStopDAO.getEntityById(6).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Octobrs", octobrs);
-        Vertex pobedy = new Vertex(iBusStopDAO.getEntityById(7).getName());
+        Vertex pobedy = new Vertex(iBusStopDAO.getEntityById(7).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Pobedy", pobedy);
-        Vertex pervomayskay = new Vertex(iBusStopDAO.getEntityById(8).getName());
+        Vertex pervomayskay = new Vertex(iBusStopDAO.getEntityById(8).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Pervomayskay", pervomayskay);
-        Vertex partizanskay = new Vertex(iBusStopDAO.getEntityById(9).getName());
+        Vertex partizanskay = new Vertex(iBusStopDAO.getEntityById(9).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Partizanskay", partizanskay);
-        Vertex mogilevskay = new Vertex(iBusStopDAO.getEntityById(10).getName());
+        Vertex mogilevskay = new Vertex(iBusStopDAO.getEntityById(10).getName(),iCityDAO.getEntityById(1).getName());
         vertexes.put("Mogilevskay", mogilevskay);
-        Vertex vokzal = new Vertex(iBusStopDAO.getEntityById(11).getName());
+        Vertex vokzal = new Vertex(iBusStopDAO.getEntityById(11).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Vokzal", vokzal);
-        Vertex truda = new Vertex(iBusStopDAO.getEntityById(12).getName());
+        Vertex truda = new Vertex(iBusStopDAO.getEntityById(12).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Truda", truda);
-        Vertex electrosety = new Vertex(iBusStopDAO.getEntityById(13).getName());
+        Vertex electrosety = new Vertex(iBusStopDAO.getEntityById(13).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Electrosety", electrosety);
-        Vertex kamenchikova = new Vertex(iBusStopDAO.getEntityById(14).getName());
+        Vertex kamenchikova = new Vertex(iBusStopDAO.getEntityById(14).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Kamenchikova", kamenchikova);
-        Vertex krupskay = new Vertex(iBusStopDAO.getEntityById(15).getName());
+        Vertex krupskay = new Vertex(iBusStopDAO.getEntityById(15).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Krupskay", krupskay);
-        Vertex nagornaya = new Vertex(iBusStopDAO.getEntityById(16).getName());
+        Vertex nagornaya = new Vertex(iBusStopDAO.getEntityById(16).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Nagornaya", nagornaya);
-        Vertex gromyko = new Vertex(iBusStopDAO.getEntityById(17).getName());
+        Vertex gromyko = new Vertex(iBusStopDAO.getEntityById(17).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Gromyko", gromyko);
-        Vertex makayenka = new Vertex(iBusStopDAO.getEntityById(18).getName());
+        Vertex makayenka = new Vertex(iBusStopDAO.getEntityById(18).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Makayenka", makayenka);
-        Vertex kiseleva = new Vertex(iBusStopDAO.getEntityById(19).getName());
+        Vertex kiseleva = new Vertex(iBusStopDAO.getEntityById(19).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Kiseleva", kiseleva);
-        Vertex kurchatova = new Vertex(iBusStopDAO.getEntityById(20).getName());
+        Vertex kurchatova = new Vertex(iBusStopDAO.getEntityById(20).getName(),iCityDAO.getEntityById(2).getName());
         vertexes.put("Kurchatova", kurchatova);
         IBusDAO iBusDAO = new BusDAO();
 
@@ -136,7 +139,7 @@ public class Main {
         for (int i = 0; i < listVert.size(); i++) {
 
             if (i == 0) {
-                LOGGER.info("At the bus stop :" + listVert.get(i));
+                LOGGER.info("At the bus stop :" + listVert.get(i) + " in the city "+ listVert.get(i).getCity());
                 LOGGER.info("Get on the bus № " + listVert.get(i + 1).getBusNumber());
                 bus = listVert.get(i + 1).getBusNumber();
             } else if (!bus.equals(listVert.get(i).getBusNumber()) && i < listVert.size() - 2) {
@@ -144,7 +147,7 @@ public class Main {
                 LOGGER.info("Transfer to the bus № " + listVert.get(i).getBusNumber());
                 bus = listVert.get(i + 1).getBusNumber();
             } else if (i == listVert.size() - 1) {
-                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i));
+                LOGGER.info("You will arrive at the bus stop :" + listVert.get(i)+" in the city "+ listVert.get(i).getCity());
                 LOGGER.info("You have reached your destination!");
             } else {
                 LOGGER.info("You will pass the bus stop  :" + listVert.get(i));

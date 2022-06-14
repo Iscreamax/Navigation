@@ -12,6 +12,7 @@ public class Edge {
         this.startVert = startVert;
         this.targetVert = targetVert;
         this.busNumber = busNumber;
+
     }
 
     public String getBusNumber() {

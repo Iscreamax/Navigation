@@ -16,14 +16,28 @@ public class Vertex implements Comparable {
     private double dist = Double.MAX_VALUE;
     private Vertex pr;
     private String busNumber;
+    private String city;
 
     public Vertex() {
     }
 
-    public Vertex(String name) {
+    public Vertex(String name,String city) {
         this.name = name;
         this.List = new ArrayList();
+        this.city = city;
 
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public boolean isVisited() {
+        return visited;
     }
 
     public String getBusNumber() {
