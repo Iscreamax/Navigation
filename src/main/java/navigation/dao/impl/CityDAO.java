@@ -33,7 +33,6 @@ public class CityDAO implements ICityDAO {
                 city.setId(rs.getInt("id"));
                 city.setName(rs.getString("name"));
             }
-            LOGGER.info("City was found by id " + city);
         } catch (SQLException e) {
             LOGGER.info("There was a problem with GET ENTITY BY ID", e);
         } finally {
