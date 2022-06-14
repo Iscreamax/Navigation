@@ -1,6 +1,7 @@
 package navigation.dao.models;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BusStop implements Comparable {
     private int id;
@@ -73,24 +74,13 @@ public class BusStop implements Comparable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BusStop)) return false;
-
         BusStop busStop = (BusStop) o;
-
-        if (id != busStop.id) return false;
-        if (Float.compare(busStop.latitude, latitude) != 0) return false;
-        if (Float.compare(busStop.longitude, longitude) != 0) return false;
-        if (name != null ? !name.equals(busStop.name) : busStop.name != null) return false;
-        return city != null ? city.equals(busStop.city) : busStop.city == null;
+        return id == busStop.id && Float.compare(busStop.latitude, latitude) == 0 && Float.compare(busStop.longitude, longitude) == 0 && Objects.equals(name, busStop.name) && Objects.equals(city, busStop.city) && Objects.equals(routes, busStop.routes);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (latitude != +0.0f ? Float.floatToIntBits(latitude) : 0);
-        result = 31 * result + (longitude != +0.0f ? Float.floatToIntBits(longitude) : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, latitude, longitude, city, routes);
     }
 
     @Override
