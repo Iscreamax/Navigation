@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<route>
+    <bus>
+        <id>0</id>
+        <maxCountOfPassengers>0</maxCountOfPassengers>
+    </bus>
+    <busStop>
+        <id>0</id>
+        <latitude>0.0</latitude>
+        <longitude>0.0</longitude>
+    </busStop>
+    <city>
+        <id>0</id>
+    </city>
+    <route>
+        <id>0</id>
+        <busId>0</busId>
+        <busStopId>0</busStopId>
+    </route>
+</route>

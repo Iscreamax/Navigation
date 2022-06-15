@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Objects;
 
-@XmlRootElement(name = "route")
+
 @XmlType(propOrder = {"id", "busId", "busStopId"})
 public class Route {
     private int id;
