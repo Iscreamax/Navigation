@@ -1,7 +1,10 @@
 package navigation.dao.models;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
+@XmlType(propOrder = {"id", "name", "busStops"})
 public class City {
     private int id;
     private String name;
@@ -24,7 +27,7 @@ public class City {
     public int getId() {
         return id;
     }
-
+    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -32,7 +35,7 @@ public class City {
     public String getName() {
         return name;
     }
-
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
@@ -58,7 +61,7 @@ public class City {
     public List<BusStop> getBusStops() {
         return busStops;
     }
-
+    @XmlElement
     public void setBusStops(List<BusStop> busStops) {
         this.busStops = busStops;
     }

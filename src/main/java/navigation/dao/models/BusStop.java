@@ -1,8 +1,11 @@
 package navigation.dao.models;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 import java.util.Objects;
 
+@XmlType(propOrder = {"id", "name", "latitude", "longitude", "city", "routes"})
 public class BusStop implements Comparable {
     private int id;
     private String name;
@@ -25,7 +28,7 @@ public class BusStop implements Comparable {
     public int getId() {
         return id;
     }
-
+    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -33,7 +36,7 @@ public class BusStop implements Comparable {
     public String getName() {
         return name;
     }
-
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
@@ -41,7 +44,7 @@ public class BusStop implements Comparable {
     public float getLatitude() {
         return latitude;
     }
-
+    @XmlElement
     public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
@@ -49,7 +52,7 @@ public class BusStop implements Comparable {
     public float getLongitude() {
         return longitude;
     }
-
+    @XmlElement
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
@@ -57,7 +60,7 @@ public class BusStop implements Comparable {
     public City getCity() {
         return city;
     }
-
+    @XmlElement
     public void setCity(City city) {
         this.city = city;
     }
@@ -65,7 +68,7 @@ public class BusStop implements Comparable {
     public List<Route> getRoutes() {
         return routes;
     }
-
+    @XmlElement
     public void setRoutes(List<Route> routes) {
         this.routes = routes;
     }

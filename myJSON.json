@@ -1,0 +1,19 @@
+[
+  {
+    "id": 0,
+    "maxCountOfPassengers": 0
+  },
+  {
+    "id": 0,
+    "latitude": 0.0,
+    "longitude": 0.0
+  },
+  {
+    "id": 0
+  },
+  {
+    "id": 0,
+    "busId": 0,
+    "busStopId": 0
+  }
+]

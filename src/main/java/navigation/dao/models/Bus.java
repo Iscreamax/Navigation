@@ -1,7 +1,10 @@
 package navigation.dao.models;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
+@XmlType(propOrder = {"id", "number", "maxCountOfPassengers", "startTime", "endTime", "routes"})
 public class Bus {
     private int id;
     private String number;
@@ -25,6 +28,7 @@ public class Bus {
         return id;
     }
 
+    @XmlElement
     public void setId(int id) {
         this.id = id;
     }
@@ -33,6 +37,7 @@ public class Bus {
         return number;
     }
 
+    @XmlElement
     public void setNumber(String number) {
         this.number = number;
     }
@@ -41,6 +46,7 @@ public class Bus {
         return maxCountOfPassengers;
     }
 
+    @XmlElement
     public void setMaxCountOfPassengers(int maxCountOfPassengers) {
         this.maxCountOfPassengers = maxCountOfPassengers;
     }
@@ -49,6 +55,7 @@ public class Bus {
         return startTime;
     }
 
+    @XmlElement
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
@@ -57,6 +64,7 @@ public class Bus {
         return endTime;
     }
 
+    @XmlElement
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
@@ -65,6 +73,7 @@ public class Bus {
         return routes;
     }
 
+    @XmlElement
     public void setRoutes(List<Route> routes) {
         this.routes = routes;
     }
