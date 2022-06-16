@@ -1,7 +1,12 @@
 package navigation.dao.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.xml.bind.annotation.XmlType;
+
 import java.util.List;
 import java.util.Objects;
+
+@XmlType(propOrder = {"id", "name", "latitude", "longitude", "city", "routes"})
 
 public class BusStop implements Comparable {
     private int id;
@@ -9,6 +14,7 @@ public class BusStop implements Comparable {
     private float latitude;
     private float longitude;
     private City city;
+    @JsonIgnore
     private List<Route> routes;
 
     public BusStop() {

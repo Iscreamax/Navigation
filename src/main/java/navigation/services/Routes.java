@@ -10,7 +10,6 @@ import navigation.dao.interfaces.ICityDAO;
 import navigation.dao.interfaces.IRouteDAO;
 import navigation.dao.models.Bus;
 import navigation.dao.models.BusStop;
-import navigation.dao.models.City;
 import navigation.dao.models.Route;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,14 +77,9 @@ public class Routes {
         LOGGER.info("You can go from Minsk to Zhodino.");
         LOGGER.info("Minsk stops: ");
         List<BusStop> busStops = busStopDAO.showAll();
-        ICityDAO cityDAO = new CityDAO();
-        busStops.stream().filter(f->f.getCity().getId()==1).map(f->"Minsk stop: "+f.getName()).forEach(LOGGER::info);
+        busStops.stream().filter(f -> f.getCity().getId() == 1).map(f -> "Minsk stop: " + f.getName()).forEach(LOGGER::info);
         LOGGER.info("Zhodino stops: ");
-        busStops.stream().filter(f->f.getCity().getId()==2).map(f->"Zhodino stop: "+f.getName()).forEach(LOGGER::info);
+        busStops.stream().filter(f -> f.getCity().getId() == 2).map(f -> "Zhodino stop: " + f.getName()).forEach(LOGGER::info);
     }
 
-    public static void main(String[] args) {
-
-        getTransport();
-    }
 }

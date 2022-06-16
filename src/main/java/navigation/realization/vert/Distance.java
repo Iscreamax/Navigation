@@ -1,19 +1,18 @@
 package navigation.realization.vert;
 
 import navigation.dao.impl.BusStopDAO;
-
 import navigation.dao.interfaces.IBusStopDAO;
 import navigation.dao.models.BusStop;
 
 
 public class Distance {
+    private static final int R = 6371;
 
     public static double countDistance(int i, int y) {
         IBusStopDAO firstBusStopDAO = new BusStopDAO();
         IBusStopDAO secondBusStopDAO = new BusStopDAO();
         BusStop firstBusStop = firstBusStopDAO.getEntityById(i);
         BusStop secondBusStop = secondBusStopDAO.getEntityById(y);
-        final int R = 6371;
 
         double latDistance = Math.toRadians(secondBusStop.getLatitude() - firstBusStop.getLatitude());
         double lonDistance = Math.toRadians(secondBusStop.getLongitude() - firstBusStop.getLongitude());

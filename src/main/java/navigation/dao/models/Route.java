@@ -9,6 +9,7 @@ public class Route {
 
     public Route() {
     }
+
     public Route(int id, int busId, int busStopId) {
         this.id = id;
         this.busId = busId;
