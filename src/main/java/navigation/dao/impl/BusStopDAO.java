@@ -21,8 +21,8 @@ public class BusStopDAO implements IBusStopDAO {
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
-    BusStop busStop = new BusStop();
-    City city = new City();
+    private BusStop busStop = new BusStop();
+    private City city = new City();
 
     @Override
     public BusStop getEntityById(int id) {
@@ -89,7 +89,6 @@ public class BusStopDAO implements IBusStopDAO {
             pr.setFloat(3, busStop.getLongitude());
             pr.setInt(4, busStop.getCity().getId());
             pr.executeUpdate();
-            LOGGER.info("The Bus stop was updated");
         } catch (SQLException e) {
             LOGGER.info("There was a problem to update the Bus stop", e);
         } finally {
@@ -110,7 +109,6 @@ public class BusStopDAO implements IBusStopDAO {
             pr = connection.prepareStatement("DELETE FROM bus_stops WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
-            LOGGER.info("The Bus stop was deleted");
         } catch (SQLException e) {
             LOGGER.info("There was problem to delete the Bus stop", e);
         } finally {
@@ -141,7 +139,6 @@ public class BusStopDAO implements IBusStopDAO {
                 City city = cityDAO.getEntityById(rs.getInt("cities_id"));
                 busStop.setCity(city);
                 busStops.add(busStop);
-//                LOGGER.info("List of Bus stops" + busStop + " ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of Bus stops", e);

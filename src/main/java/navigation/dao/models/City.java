@@ -8,7 +8,7 @@ public class City {
     private int id;
     private String name;
     @JsonIgnore
-    List<BusStop> busStops;
+    private List<BusStop> busStops;
 
     public City() {
     }
@@ -40,6 +40,14 @@ public class City {
         this.name = name;
     }
 
+    public List<BusStop> getBusStops() {
+        return busStops;
+    }
+
+    public void setBusStops(List<BusStop> busStops) {
+        this.busStops = busStops;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,14 +64,6 @@ public class City {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
-    }
-
-    public List<BusStop> getBusStops() {
-        return busStops;
-    }
-
-    public void setBusStops(List<BusStop> busStops) {
-        this.busStops = busStops;
     }
 
     @Override

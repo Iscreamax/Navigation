@@ -16,7 +16,6 @@ public class Time {
     private static final Calendar START_RUSH_HOUR = new GregorianCalendar();
     private static final Calendar END_RUSH_HOUR = new GregorianCalendar();
     private static SimpleDateFormat sdf = new SimpleDateFormat("HH.mm");
-    public static Scanner SC;
 
     public static List<Bus> showAvailableTransport() {
         try {
@@ -25,13 +24,13 @@ public class Time {
         } catch (ParseException e) {
             LOGGER.info(e);
         }
-        Scanner sc = new Scanner(System.in);
-            LOGGER.info("Enter current time: (HH.mm)");
-            try {
-                TIME.setTime(sdf.parse(sc.next()));
-            } catch (ParseException e) {
-                LOGGER.info(e);
-            }
+        LOGGER.info("Enter current time: (HH.mm)");
+        try {
+            Scanner scanner = new Scanner(System.in);
+            TIME.setTime(sdf.parse(scanner.next()));
+        } catch (ParseException e) {
+            LOGGER.info(e);
+        }
 
         IBusDAO iBusDAO = new BusDAO();
         List<Bus> buses = iBusDAO.showAll();

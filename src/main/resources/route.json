@@ -8,10 +8,55 @@
     "name" : "Zhodino"
   },
   "busStops" : [ {
-    "id" : 1,
-    "name" : "Malinovka",
-    "latitude" : 53.8633,
-    "longitude" : 27.5341,
+    "id" : 4,
+    "name" : "Grushevka",
+    "latitude" : 53.87,
+    "longitude" : 27.5339,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 5,
+    "name" : "Lenina",
+    "latitude" : 53.8727,
+    "longitude" : 27.5272,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 9,
+    "name" : "Partizanskay",
+    "latitude" : 53.8822,
+    "longitude" : 27.5195,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 8,
+    "name" : "Pervomayskay",
+    "latitude" : 53.8844,
+    "longitude" : 27.5346,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 7,
+    "name" : "Pobedy",
+    "latitude" : 53.8799,
+    "longitude" : 27.5356,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 6,
+    "name" : "Octobrs",
+    "latitude" : 53.8777,
+    "longitude" : 27.5442,
     "city" : {
       "id" : 1,
       "name" : "Minsk"
@@ -61,6 +106,33 @@
       "id" : 2,
       "name" : "Zhodino"
     }
+  }, {
+    "id" : 20,
+    "name" : "Kurchatova",
+    "latitude" : 54.0174,
+    "longitude" : 28.1041,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  }, {
+    "id" : 15,
+    "name" : "Krupskay",
+    "latitude" : 54.0252,
+    "longitude" : 28.1,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  }, {
+    "id" : 17,
+    "name" : "Gromyko",
+    "latitude" : 54.0253,
+    "longitude" : 28.0831,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
   } ],
-  "time" : "17.00"
+  "time" : "18.30"
 }

@@ -21,7 +21,6 @@ public class Vertex implements Comparable {
     private Vertex pr;
     private String busNumber;
     private String city;
-    private PathFinder pathFinder;
 
     public Vertex() {
     }

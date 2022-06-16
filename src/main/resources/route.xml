@@ -10,10 +10,60 @@
     </endPoint>
     <busStops>
         <stop>
-            <id>1</id>
-            <name>Malinovka</name>
-            <latitude>53.8633</latitude>
-            <longitude>27.5341</longitude>
+            <id>4</id>
+            <name>Grushevka</name>
+            <latitude>53.87</latitude>
+            <longitude>27.5339</longitude>
+            <city>
+                <id>1</id>
+                <name>Minsk</name>
+            </city>
+        </stop>
+        <stop>
+            <id>5</id>
+            <name>Lenina</name>
+            <latitude>53.8727</latitude>
+            <longitude>27.5272</longitude>
+            <city>
+                <id>1</id>
+                <name>Minsk</name>
+            </city>
+        </stop>
+        <stop>
+            <id>9</id>
+            <name>Partizanskay</name>
+            <latitude>53.8822</latitude>
+            <longitude>27.5195</longitude>
+            <city>
+                <id>1</id>
+                <name>Minsk</name>
+            </city>
+        </stop>
+        <stop>
+            <id>8</id>
+            <name>Pervomayskay</name>
+            <latitude>53.8844</latitude>
+            <longitude>27.5346</longitude>
+            <city>
+                <id>1</id>
+                <name>Minsk</name>
+            </city>
+        </stop>
+        <stop>
+            <id>7</id>
+            <name>Pobedy</name>
+            <latitude>53.8799</latitude>
+            <longitude>27.5356</longitude>
+            <city>
+                <id>1</id>
+                <name>Minsk</name>
+            </city>
+        </stop>
+        <stop>
+            <id>6</id>
+            <name>Octobrs</name>
+            <latitude>53.8777</latitude>
+            <longitude>27.5442</longitude>
             <city>
                 <id>1</id>
                 <name>Minsk</name>
@@ -69,6 +119,36 @@
                 <name>Zhodino</name>
             </city>
         </stop>
+        <stop>
+            <id>20</id>
+            <name>Kurchatova</name>
+            <latitude>54.0174</latitude>
+            <longitude>28.1041</longitude>
+            <city>
+                <id>2</id>
+                <name>Zhodino</name>
+            </city>
+        </stop>
+        <stop>
+            <id>15</id>
+            <name>Krupskay</name>
+            <latitude>54.0252</latitude>
+            <longitude>28.1</longitude>
+            <city>
+                <id>2</id>
+                <name>Zhodino</name>
+            </city>
+        </stop>
+        <stop>
+            <id>17</id>
+            <name>Gromyko</name>
+            <latitude>54.0253</latitude>
+            <longitude>28.0831</longitude>
+            <city>
+                <id>2</id>
+                <name>Zhodino</name>
+            </city>
+        </stop>
     </busStops>
-    <time>17.0</time>
+    <time>18.30</time>
 </route>

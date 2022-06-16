@@ -21,9 +21,9 @@ public class RouteDAO implements IRouteDAO {
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
-    Route route = new Route();
-    Bus bus = new Bus();
-    BusStop busStop = new BusStop();
+    private Route route = new Route();
+    private Bus bus = new Bus();
+    private BusStop busStop = new BusStop();
 
     @Override
     public Route getEntityById(int id) {
@@ -60,7 +60,6 @@ public class RouteDAO implements IRouteDAO {
             pr.setInt(1, route.getBusId());
             pr.setInt(2, route.getBusStopId());
             pr.executeUpdate();
-            LOGGER.info("The Route was created");
         } catch (SQLException e) {
             LOGGER.info("There was a problem to insert into Routs", e);
         } finally {
@@ -82,7 +81,6 @@ public class RouteDAO implements IRouteDAO {
             pr.setInt(1, route.getBusId());
             pr.setInt(2, route.getBusStopId());
             pr.executeUpdate();
-            LOGGER.info("The Route was updated");
         } catch (SQLException e) {
             LOGGER.info("There was a problem to update the Route", e);
         } finally {
@@ -102,7 +100,6 @@ public class RouteDAO implements IRouteDAO {
             pr = connection.prepareStatement("DELETE FROM routes WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
-            LOGGER.info("The Route was deleted");
         } catch (SQLException e) {
             LOGGER.info("There was problem to delete the Route", e);
         } finally {

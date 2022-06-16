@@ -8,9 +8,6 @@ import java.util.PriorityQueue;
 
 public class PathFinder {
 
-    public PathFinder() {
-    }
-
     public void ShortestP(Vertex sourceV) {
         sourceV.setDist(0);
         PriorityQueue<Vertex> priorityQueue = new PriorityQueue();

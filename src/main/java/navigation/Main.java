@@ -26,7 +26,6 @@ import java.util.*;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-
     public static void main(String[] args) {
         Route route = new Route();
         IBusStopDAO iBusStopDAO = new BusStopDAO();
@@ -130,10 +129,9 @@ public class Main {
 
             }
         }
-        try (Scanner scan = new Scanner(System.in)) {
-            IBusStopDAO busStopDAO = new BusStopDAO();
-            LOGGER.info("Enter the stop you would like to travel from: ");
-            String firstBusStop = scan.nextLine();
+        LOGGER.info("Enter the stop you would like to travel from: ");
+        try (Scanner sc = new Scanner(System.in)) {
+            String firstBusStop = sc.nextLine();
             if (!vertexes.containsKey(firstBusStop))
                 throw new IllegalArgumentException("Incorrect value: " + firstBusStop);
             else
@@ -141,7 +139,7 @@ public class Main {
             PathFinder pathFinder = new PathFinder();
             pathFinder.ShortestP(vertexes.get(firstBusStop));
             LOGGER.info("Enter the stop where you would like to get to: ");
-            String secondBusStop = scan.nextLine();
+            String secondBusStop = sc.nextLine();
             if (!vertexes.containsKey(secondBusStop))
                 throw new IllegalArgumentException("Incorrect value: " + firstBusStop);
             listVert = pathFinder.getShortestPathTo(vertexes.get(secondBusStop));

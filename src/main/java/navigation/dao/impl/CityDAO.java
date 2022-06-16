@@ -19,7 +19,7 @@ public class CityDAO implements ICityDAO {
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
-    City city = new City();
+    private City city = new City();
 
     @Override
     public City getEntityById(int id) {
@@ -54,7 +54,6 @@ public class CityDAO implements ICityDAO {
             pr = connection.prepareStatement("INSERT INTO cities (name) VALUES (?)");
             pr.setString(1, city.getName());
             pr.executeUpdate();
-            LOGGER.info("The City was created " + city);
         } catch (SQLException e) {
             LOGGER.info("There was a problem to insert into City the new entity", e);
         } finally {
@@ -75,7 +74,6 @@ public class CityDAO implements ICityDAO {
             pr = connection.prepareStatement("UPDATE cities SET name=? WHERE id=?");
             pr.setString(1, city.getName());
             pr.executeUpdate();
-            LOGGER.info("The City was updated");
         } catch (SQLException e) {
             LOGGER.info("There was a problem to update the City", e);
         } finally {
@@ -95,7 +93,6 @@ public class CityDAO implements ICityDAO {
             pr = connection.prepareStatement("DELETE FROM cities WHERE id=?");
             pr.setInt(1, id);
             pr.executeUpdate();
-            LOGGER.info("The City was deleted");
         } catch (SQLException e) {
             LOGGER.info("There was a problem to remove the City", e);
         } finally {
@@ -121,7 +118,6 @@ public class CityDAO implements ICityDAO {
                 city.setId(rs.getInt("id"));
                 city.setName(rs.getString("name"));
                 cities.add(city);
-                LOGGER.info("List of cities: ");
             }
         } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of cities", e);
