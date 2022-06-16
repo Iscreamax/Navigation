@@ -94,5 +94,15 @@ public class Bus {
         return result;
     }
 
-
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", maxCountOfPassengers=" + maxCountOfPassengers +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", routes=" + routes +
+                '}';
+    }
 }

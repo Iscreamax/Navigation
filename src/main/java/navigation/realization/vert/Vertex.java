@@ -1,15 +1,19 @@
 package navigation.realization.vert;
 
+import navigation.dao.impl.BusStopDAO;
+import navigation.dao.interfaces.IBusStopDAO;
+import navigation.dao.models.BusStop;
+import navigation.dao.models.City;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Vertex implements Comparable {
     private static final Logger LOGGER = LogManager.getLogger(Vertex.class);
-
     private boolean visited;
     private String name;
     private List<Edge> List;
@@ -17,11 +21,12 @@ public class Vertex implements Comparable {
     private Vertex pr;
     private String busNumber;
     private String city;
+    private PathFinder pathFinder;
 
     public Vertex() {
     }
 
-    public Vertex(String name,String city) {
+    public Vertex(String name, String city) {
         this.name = name;
         this.List = new ArrayList();
         this.city = city;
@@ -91,6 +96,37 @@ public class Vertex implements Comparable {
 
     public void setDist(double dist) {
         this.dist = dist;
+    }
+
+
+    public static List<BusStop> getBusStops(List<Vertex> vertexes) {
+        IBusStopDAO busStopDAO = new BusStopDAO();
+        List<BusStop> result = new ArrayList<>();
+        for (Vertex v : vertexes) {
+            result.add(busStopDAO.showAll().stream().filter(f -> f.getName().equals(v.getName()))
+                    .collect(Collectors.toList()).get(0));
+        }
+        return result;
+    }
+
+    public static City getStartCity(List<Vertex> vertexes) {
+        IBusStopDAO busStopDAO = new BusStopDAO();
+        List<BusStop> busStops = new ArrayList<>();
+        for (Vertex v : vertexes) {
+            busStops.add(busStopDAO.showAll().stream().filter(f -> f.getName().equals(v.getName()))
+                    .collect(Collectors.toList()).get(0));
+        }
+        return busStops.get(0).getCity();
+    }
+
+    public static City getFinalCity(List<Vertex> vertexes) {
+        IBusStopDAO busStopDAO = new BusStopDAO();
+        List<BusStop> busStops = new ArrayList<>();
+        for (Vertex v : vertexes) {
+            busStops.add(busStopDAO.showAll().stream().filter(f -> f.getName().equals(v.getName()))
+                    .collect(Collectors.toList()).get(0));
+        }
+        return busStops.get(busStops.size() - 1).getCity();
     }
 
     @Override

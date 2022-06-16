@@ -17,7 +17,7 @@ import java.util.List;
 
 public class BusStopDAO implements IBusStopDAO {
     private static final Logger LOGGER = LogManager.getLogger(BusStopDAO.class);
-    private ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
@@ -138,7 +138,7 @@ public class BusStopDAO implements IBusStopDAO {
                 busStop.setLatitude(rs.getFloat("latitude"));
                 busStop.setLongitude(rs.getFloat("longitude"));
                 ICityDAO cityDAO = new CityDAO();
-                City city = new City(rs.getInt("cities_id"),rs.getString("name"));
+                City city = cityDAO.getEntityById(rs.getInt("cities_id"));
                 busStop.setCity(city);
                 busStops.add(busStop);
 //                LOGGER.info("List of Bus stops" + busStop + " ");

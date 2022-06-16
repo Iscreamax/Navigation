@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RouteDAO implements IRouteDAO {
     private static final Logger LOGGER = LogManager.getLogger(RouteDAO.class);
-    private ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
@@ -124,13 +124,13 @@ public class RouteDAO implements IRouteDAO {
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
-             Route route = new Route();
-             route.setId(rs.getInt("id"));
-             route.setBusId(rs.getInt("buses_id"));
-             route.setBusStopId(rs.getInt("bus_stops_id"));
+                Route route = new Route();
+                route.setId(rs.getInt("id"));
+                route.setBusId(rs.getInt("buses_id"));
+                route.setBusStopId(rs.getInt("bus_stops_id"));
                 routes.add(route);
             }
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.info("There was a problem to show a list of routes", e);
         } finally {
             try {

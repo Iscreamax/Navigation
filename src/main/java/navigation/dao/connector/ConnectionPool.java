@@ -17,8 +17,8 @@ public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance = null;
     private static final int INITIAL_POOL_SIZE = 5;
-    private static List<Connection> freeConnections = new ArrayList<>();
-    private static List<Connection> usedConnections = new ArrayList<>();
+    private static final List<Connection> freeConnections = new ArrayList<>();
+    private static final List<Connection> usedConnections = new ArrayList<>();
 
     private ConnectionPool() {
     }

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CityDAO implements ICityDAO {
     private static final Logger LOGGER = LogManager.getLogger(CityDAO.class);
-    private ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;
@@ -117,6 +117,7 @@ public class CityDAO implements ICityDAO {
             pr.execute();
             rs = pr.getResultSet();
             while (rs.next()) {
+                City city = new City();
                 city.setId(rs.getInt("id"));
                 city.setName(rs.getString("name"));
                 cities.add(city);

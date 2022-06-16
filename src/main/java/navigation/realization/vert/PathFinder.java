@@ -5,8 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
+
 public class PathFinder {
 
+    public PathFinder() {
+    }
 
     public void ShortestP(Vertex sourceV) {
         sourceV.setDist(0);
@@ -34,8 +37,8 @@ public class PathFinder {
         }
     }
 
-    public List getShortestPathTo(Vertex targetVertex) {
-        List path = new ArrayList();
+    public List<Vertex> getShortestPathTo(Vertex targetVertex) {
+        List<Vertex> path = new ArrayList();
         for (Vertex vertex = targetVertex; vertex != null; vertex = vertex.getPr()) {
 
             path.add(vertex);
@@ -43,4 +46,5 @@ public class PathFinder {
         Collections.reverse(path);
         return path;
     }
+
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BusDAO implements IBusDAO {
     private static final Logger LOGGER = LogManager.getLogger(BusDAO.class);
-    private ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private ResultSet rs;
     private PreparedStatement pr;

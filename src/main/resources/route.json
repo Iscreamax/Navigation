@@ -1,0 +1,66 @@
+{
+  "startPoint" : {
+    "id" : 1,
+    "name" : "Minsk"
+  },
+  "endPoint" : {
+    "id" : 2,
+    "name" : "Zhodino"
+  },
+  "busStops" : [ {
+    "id" : 1,
+    "name" : "Malinovka",
+    "latitude" : 53.8633,
+    "longitude" : 27.5341,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 10,
+    "name" : "Mogilevskay",
+    "latitude" : 53.8806,
+    "longitude" : 27.5835,
+    "city" : {
+      "id" : 1,
+      "name" : "Minsk"
+    }
+  }, {
+    "id" : 14,
+    "name" : "Kamenchikova",
+    "latitude" : 54.0176,
+    "longitude" : 28.0612,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  }, {
+    "id" : 13,
+    "name" : "Electrosety",
+    "latitude" : 54.0074,
+    "longitude" : 28.1141,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  }, {
+    "id" : 12,
+    "name" : "Truda",
+    "latitude" : 54.0106,
+    "longitude" : 28.1374,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  }, {
+    "id" : 11,
+    "name" : "Vokzal",
+    "latitude" : 54.0129,
+    "longitude" : 28.1436,
+    "city" : {
+      "id" : 2,
+      "name" : "Zhodino"
+    }
+  } ],
+  "time" : "17.00"
+}

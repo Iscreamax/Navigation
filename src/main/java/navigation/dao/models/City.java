@@ -1,10 +1,13 @@
 package navigation.dao.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class City {
     private int id;
     private String name;
+    @JsonIgnore
     List<BusStop> busStops;
 
     public City() {

@@ -1,7 +1,6 @@
 package navigation.realization.vert;
 
 import navigation.dao.impl.BusStopDAO;
-
 import navigation.dao.interfaces.IBusStopDAO;
 import navigation.dao.models.BusStop;
 
